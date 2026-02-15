@@ -9,5 +9,9 @@
   "importOrder": ["^react", "^next", "<THIRD_PARTY_MODULES>", "^@/(.*)$", "^[./]"],
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true,
-  "tailwindFunctions": ["clsx", "twMerge"]
+  "tailwindFunctions": [
+    "clsx",
+    "cn",
+    "twMerge"
+  ]
 }
