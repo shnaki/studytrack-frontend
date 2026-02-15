@@ -12,7 +12,8 @@
       "Bash(npx prettier --check .)",
       "Bash(npx prettier --write .)",
       "Bash(npm run build:*)",
-      "Bash(npm run test:coverage:*)"
+      "Bash(npm run test:coverage:*)",
+      "Bash(npx prettier:*)"
     ]
   }
 }
