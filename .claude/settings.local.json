@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C /c/Users/shnaki/src/github.com/shnaki/studytrack-frontend log --oneline -10)",
+      "Bash(git -C /c/Users/shnaki/src/github.com/shnaki/studytrack-frontend branch:*)",
+      "Bash(git -C /c/Users/shnaki/src/github.com/shnaki/studytrack-frontend remote -v)",
+      "Bash(npm view:*)",
+      "Bash(node -e:*)",
+      "Bash(npm install:*)",
+      "Bash(npm test:*)",
+      "Bash(npm run lint)",
+      "Bash(npx prettier --check .)",
+      "Bash(npx prettier --write .)",
+      "Bash(npm run build:*)",
+      "Bash(npm run test:coverage:*)",
+      "Bash(npx prettier:*)",
+      "WebSearch",
+      "WebFetch(domain:ui.shadcn.com)",
+      "Bash(npx shadcn@latest init:*)",
+      "Bash(npx shadcn@latest add:*)",
+      "Bash(git commit:*)",
+      "Bash(git add:*)",
+      "Bash(gh issue list:*)",
+      "Bash(gh.exe issue list --state open)",
+      "WebFetch(domain:github.com)"
+    ]
+  }
+}
