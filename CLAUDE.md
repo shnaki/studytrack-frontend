@@ -1,32 +1,32 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+このファイルは、Claude Code (claude.ai/code) がこのリポジトリで作業する際のガイダンスを提供します。
 
-## Project Overview
+## プロジェクト概要
 
-StudyTrack Frontend — a learning progress tracking web app built with Next.js 16, React 19, TypeScript, and Tailwind CSS v4. The API specification is in `docs/openapi.yaml`.
+StudyTrack Frontend — Next.js 16、React 19、TypeScript、Tailwind CSS v4 で構築された学習進捗管理Webアプリ。API仕様は `docs/openapi.yaml` を参照。
 
-## Commands
+## コマンド
 
-- `npm run dev` — start dev server
-- `npm run build` — production build
-- `npm run lint` — run ESLint (includes unused-import checks)
-- `npx prettier --check .` — check formatting
-- `npx prettier --write .` — auto-format
+- `npm run dev` — 開発サーバー起動
+- `npm run build` — 本番ビルド
+- `npm run lint` — ESLint実行（未使用importチェック含む）
+- `npx prettier --check .` — フォーマットチェック
+- `npx prettier --write .` — 自動フォーマット
 
-No test framework is configured yet.
+テストフレームワークは未導入。
 
-## Architecture
+## アーキテクチャ
 
-- **Next.js App Router** — all pages/layouts live under `src/app/`
-- **React Compiler** enabled in `next.config.ts` (`reactCompiler: true`)
-- **Path alias**: `@/*` maps to `./src/*`
+- **Next.js App Router** — ページ・レイアウトは `src/app/` 配下
+- **React Compiler** が `next.config.ts` で有効化済み（`reactCompiler: true`）
+- **パスエイリアス**: `@/*` は `./src/*` に対応
 
-## Code Style & Conventions
+## コードスタイル・規約
 
-- **No semicolons**, single quotes, trailing commas, 90-char print width (`.prettierrc`)
-- **Import order** (auto-sorted by Prettier plugin): `react` → `next` → third-party → `@/` aliases → relative
-- **Unused imports** are errors (auto-fixed by `eslint-plugin-unused-imports`); unused vars prefixed with `_` are allowed
-- **CSS utilities**: use `clsx` for conditional classes and `twMerge` for merging Tailwind classes (both are registered as `tailwindFunctions` in Prettier config)
-- **Tailwind CSS v4** via PostCSS — dark mode uses `prefers-color-scheme`
-- **Fonts**: Geist (sans) and Geist Mono via `next/font/google`, applied as CSS variables `--font-geist-sans` / `--font-geist-mono`
+- **セミコロンなし**、シングルクォート、末尾カンマあり、1行90文字（`.prettierrc`）
+- **import順序**（Prettierプラグインで自動ソート）: `react` → `next` → サードパーティ → `@/` エイリアス → 相対パス
+- **未使用import** はエラー（`eslint-plugin-unused-imports` で自動修正）、`_` 始まりの未使用変数は許可
+- **CSSユーティリティ**: 条件付きクラスには `clsx`、Tailwindクラスのマージには `twMerge` を使用（どちらもPrettier設定で `tailwindFunctions` に登録済み）
+- **Tailwind CSS v4**（PostCSS経由）— ダークモードは `prefers-color-scheme` を使用
+- **フォント**: Geist (sans) と Geist Mono を `next/font/google` で読み込み、CSS変数 `--font-geist-sans` / `--font-geist-mono` として適用
