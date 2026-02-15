@@ -10,6 +10,7 @@ import {
   TargetIcon,
 } from 'lucide-react'
 
+import { ThemeToggle } from '@/components/theme-toggle'
 import { Separator } from '@/components/ui/separator'
 import {
   Sidebar,
@@ -101,6 +102,11 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           </SidebarGroup>
         </SidebarContent>
         <SidebarFooter>
+          <SidebarMenu>
+            <SidebarMenuItem>
+              <ThemeToggle />
+            </SidebarMenuItem>
+          </SidebarMenu>
           <div className="text-muted-foreground truncate px-2 py-1 text-sm">
             {user.name}
           </div>

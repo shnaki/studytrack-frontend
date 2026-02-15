@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google'
 
 import { AppShell } from '@/components/app-shell'
 import { QueryProvider } from '@/providers/query-provider'
+import { ThemeProvider } from '@/providers/theme-provider'
 import { UserProvider } from '@/providers/user-provider'
 
 import './globals.css'
@@ -28,13 +29,15 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="ja">
+    <html lang="ja" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <QueryProvider>
-          <UserProvider>
-            <AppShell>{children}</AppShell>
-          </UserProvider>
-        </QueryProvider>
+        <ThemeProvider>
+          <QueryProvider>
+            <UserProvider>
+              <AppShell>{children}</AppShell>
+            </UserProvider>
+          </QueryProvider>
+        </ThemeProvider>
       </body>
     </html>
   )
