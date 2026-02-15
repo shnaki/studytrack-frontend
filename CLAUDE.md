@@ -10,9 +10,15 @@ StudyTrack Frontend — Next.js 16、React 19、TypeScript、Tailwind CSS v4 で
 
 - `npm run dev` — 開発サーバー起動
 - `npm run build` — 本番ビルド
-- `npm run lint` — ESLint実行（未使用importチェック含む）
-- `npx prettier --check .` — フォーマットチェック
-- `npx prettier --write .` — 自動フォーマット
+- `npm run lint` — ESLint実行（未使用importチェック含む、`coverage/` は除外）
+- `npm run format:check` — フォーマットチェック
+- `npm run format` — 自動フォーマット
+
+## CI (GitHub Actions)
+
+- **ワークフロー**: `.github/workflows/ci.yml`
+- **トリガー**: `main` ブランチへの push およびプルリクエスト
+- **実行内容**: Lint, Format Check, Test, Build を並列実行
 
 - `npm test` — テスト実行（Vitest）
 - `npm run test:watch` — テストをウォッチモードで実行
