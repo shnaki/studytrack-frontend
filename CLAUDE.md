@@ -14,7 +14,9 @@ StudyTrack Frontend — Next.js 16、React 19、TypeScript、Tailwind CSS v4 で
 - `npx prettier --check .` — フォーマットチェック
 - `npx prettier --write .` — 自動フォーマット
 
-テストフレームワークは未導入。
+- `npm test` — テスト実行（Vitest）
+- `npm run test:watch` — テストをウォッチモードで実行
+- `npm run test:coverage` — カバレッジ付きテスト実行
 
 ## アーキテクチャ
 
@@ -30,3 +32,10 @@ StudyTrack Frontend — Next.js 16、React 19、TypeScript、Tailwind CSS v4 で
 - **CSSユーティリティ**: 条件付きクラスには `clsx`、Tailwindクラスのマージには `twMerge` を使用（どちらもPrettier設定で `tailwindFunctions` に登録済み）
 - **Tailwind CSS v4**（PostCSS経由）— ダークモードは `prefers-color-scheme` を使用
 - **フォント**: Geist (sans) と Geist Mono を `next/font/google` で読み込み、CSS変数 `--font-geist-sans` / `--font-geist-mono` として適用
+
+## テスト規約
+
+- **Vitest + React Testing Library** を使用
+- テストファイルはソースと同じディレクトリに `*.test.tsx` として配置（コロケーション）
+- `globals: true` により `describe`/`it`/`expect`/`vi` はインポート不要
+- `screen` クエリを優先使用

@@ -29,6 +29,9 @@ package-lock.json
 yarn.lock
 pnpm-lock.yaml
 
+# カバレッジ
+coverage
+
 # その他
 .vercel
 .vscode
