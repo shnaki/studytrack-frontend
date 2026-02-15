@@ -1,8 +1,9 @@
 'use client'
 
+import { createContext, useCallback, useEffect, useState } from 'react'
+
 import { getUser } from '@/lib/api/users'
 import type { User } from '@/types/api'
-import { createContext, useCallback, useEffect, useState } from 'react'
 
 const STORAGE_KEY = 'studytrack_userId'
 
@@ -22,9 +23,9 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
     const userId = localStorage.getItem(STORAGE_KEY)
     const userPromise = userId
       ? getUser(userId).catch(() => {
-        localStorage.removeItem(STORAGE_KEY)
-        return null
-      })
+          localStorage.removeItem(STORAGE_KEY)
+          return null
+        })
       : Promise.resolve(null)
 
     userPromise.then((u) => {

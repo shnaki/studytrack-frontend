@@ -1,8 +1,14 @@
 'use client'
 
-import { createSubject, deleteSubject, listSubjects, updateSubject } from '@/lib/api/subjects'
-import type { CreateSubjectRequest, UpdateSubjectRequest } from '@/types/api'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+
+import {
+  createSubject,
+  deleteSubject,
+  listSubjects,
+  updateSubject,
+} from '@/lib/api/subjects'
+import type { CreateSubjectRequest, UpdateSubjectRequest } from '@/types/api'
 
 function subjectsKey(userId: string) {
   return ['subjects', userId] as const

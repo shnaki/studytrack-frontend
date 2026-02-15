@@ -1,8 +1,9 @@
+import type { Metadata } from 'next'
+import { Geist, Geist_Mono } from 'next/font/google'
+
 import { AppShell } from '@/components/app-shell'
 import { QueryProvider } from '@/providers/query-provider'
 import { UserProvider } from '@/providers/user-provider'
-import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
 
 import './globals.css'
 
@@ -29,11 +30,11 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-      <QueryProvider>
-        <UserProvider>
-          <AppShell>{children}</AppShell>
-        </UserProvider>
-      </QueryProvider>
+        <QueryProvider>
+          <UserProvider>
+            <AppShell>{children}</AppShell>
+          </UserProvider>
+        </QueryProvider>
       </body>
     </html>
   )

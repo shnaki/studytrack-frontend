@@ -1,15 +1,27 @@
 'use client'
 
+import { useState } from 'react'
+
+import { PencilIcon, PlusIcon, TrashIcon } from 'lucide-react'
+
 import { SubjectForm } from '@/components/subject-form'
 import { Button } from '@/components/ui/button'
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog'
-import { useCreateSubject, useDeleteSubject, useSubjects, useUpdateSubject } from '@/hooks/use-subjects'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog'
+import {
+  useCreateSubject,
+  useDeleteSubject,
+  useSubjects,
+  useUpdateSubject,
+} from '@/hooks/use-subjects'
 import { useUser } from '@/hooks/use-user'
 import type { Subject } from '@/types/api'
-
-import { PencilIcon, PlusIcon, TrashIcon } from 'lucide-react'
-import { useState } from 'react'
 
 export function SubjectList() {
   const { user } = useUser()

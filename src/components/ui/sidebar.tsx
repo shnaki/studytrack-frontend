@@ -1,18 +1,30 @@
 'use client'
 
+import * as React from 'react'
+
+import { type VariantProps, cva } from 'class-variance-authority'
+import { PanelLeftIcon } from 'lucide-react'
+import { Slot } from 'radix-ui'
+
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
-import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from '@/components/ui/sheet'
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+} from '@/components/ui/sheet'
 import { Skeleton } from '@/components/ui/skeleton'
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip'
 import { useIsMobile } from '@/hooks/use-mobile'
 import { cn } from '@/lib/utils'
-
-import { cva, type VariantProps } from 'class-variance-authority'
-import { PanelLeftIcon } from 'lucide-react'
-import { Slot } from 'radix-ui'
-import * as React from 'react'
 
 const SIDEBAR_COOKIE_NAME = 'sidebar_state'
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
@@ -43,14 +55,14 @@ function useSidebar() {
 }
 
 function SidebarProvider({
-                           defaultOpen = true,
-                           open: openProp,
-                           onOpenChange: setOpenProp,
-                           className,
-                           style,
-                           children,
-                           ...props
-                         }: React.ComponentProps<'div'> & {
+  defaultOpen = true,
+  open: openProp,
+  onOpenChange: setOpenProp,
+  className,
+  style,
+  children,
+  ...props
+}: React.ComponentProps<'div'> & {
   defaultOpen?: boolean
   open?: boolean
   onOpenChange?: (open: boolean) => void
@@ -138,13 +150,13 @@ function SidebarProvider({
 }
 
 function Sidebar({
-                   side = 'left',
-                   variant = 'sidebar',
-                   collapsible = 'offcanvas',
-                   className,
-                   children,
-                   ...props
-                 }: React.ComponentProps<'div'> & {
+  side = 'left',
+  variant = 'sidebar',
+  collapsible = 'offcanvas',
+  className,
+  children,
+  ...props
+}: React.ComponentProps<'div'> & {
   side?: 'left' | 'right'
   variant?: 'sidebar' | 'floating' | 'inset'
   collapsible?: 'offcanvas' | 'icon' | 'none'
@@ -240,10 +252,10 @@ function Sidebar({
 }
 
 function SidebarTrigger({
-                          className,
-                          onClick,
-                          ...props
-                        }: React.ComponentProps<typeof Button>) {
+  className,
+  onClick,
+  ...props
+}: React.ComponentProps<typeof Button>) {
   const { toggleSidebar } = useSidebar()
 
   return (
@@ -338,9 +350,9 @@ function SidebarFooter({ className, ...props }: React.ComponentProps<'div'>) {
 }
 
 function SidebarSeparator({
-                            className,
-                            ...props
-                          }: React.ComponentProps<typeof Separator>) {
+  className,
+  ...props
+}: React.ComponentProps<typeof Separator>) {
   return (
     <Separator
       data-slot="sidebar-separator"
@@ -377,10 +389,10 @@ function SidebarGroup({ className, ...props }: React.ComponentProps<'div'>) {
 }
 
 function SidebarGroupLabel({
-                             className,
-                             asChild = false,
-                             ...props
-                           }: React.ComponentProps<'div'> & { asChild?: boolean }) {
+  className,
+  asChild = false,
+  ...props
+}: React.ComponentProps<'div'> & { asChild?: boolean }) {
   const Comp = asChild ? Slot.Root : 'div'
 
   return (
@@ -398,10 +410,10 @@ function SidebarGroupLabel({
 }
 
 function SidebarGroupAction({
-                              className,
-                              asChild = false,
-                              ...props
-                            }: React.ComponentProps<'button'> & { asChild?: boolean }) {
+  className,
+  asChild = false,
+  ...props
+}: React.ComponentProps<'button'> & { asChild?: boolean }) {
   const Comp = asChild ? Slot.Root : 'button'
 
   return (
@@ -476,14 +488,14 @@ const sidebarMenuButtonVariants = cva(
 )
 
 function SidebarMenuButton({
-                             asChild = false,
-                             isActive = false,
-                             variant = 'default',
-                             size = 'default',
-                             tooltip,
-                             className,
-                             ...props
-                           }: React.ComponentProps<'button'> & {
+  asChild = false,
+  isActive = false,
+  variant = 'default',
+  size = 'default',
+  tooltip,
+  className,
+  ...props
+}: React.ComponentProps<'button'> & {
   asChild?: boolean
   isActive?: boolean
   tooltip?: string | React.ComponentProps<typeof TooltipContent>
@@ -526,11 +538,11 @@ function SidebarMenuButton({
 }
 
 function SidebarMenuAction({
-                             className,
-                             asChild = false,
-                             showOnHover = false,
-                             ...props
-                           }: React.ComponentProps<'button'> & {
+  className,
+  asChild = false,
+  showOnHover = false,
+  ...props
+}: React.ComponentProps<'button'> & {
   asChild?: boolean
   showOnHover?: boolean
 }) {
@@ -549,7 +561,7 @@ function SidebarMenuAction({
         'peer-data-[size=lg]/menu-button:top-2.5',
         'group-data-[collapsible=icon]:hidden',
         showOnHover &&
-        'peer-data-[active=true]/menu-button:text-sidebar-accent-foreground group-focus-within/menu-item:opacity-100 group-hover/menu-item:opacity-100 data-[state=open]:opacity-100 md:opacity-0',
+          'peer-data-[active=true]/menu-button:text-sidebar-accent-foreground group-focus-within/menu-item:opacity-100 group-hover/menu-item:opacity-100 data-[state=open]:opacity-100 md:opacity-0',
         className,
       )}
       {...props}
@@ -577,10 +589,10 @@ function SidebarMenuBadge({ className, ...props }: React.ComponentProps<'div'>) 
 }
 
 function SidebarMenuSkeleton({
-                               className,
-                               showIcon = false,
-                               ...props
-                             }: React.ComponentProps<'div'> & {
+  className,
+  showIcon = false,
+  ...props
+}: React.ComponentProps<'div'> & {
   showIcon?: boolean
 }) {
   const width = '70%'
@@ -635,12 +647,12 @@ function SidebarMenuSubItem({ className, ...props }: React.ComponentProps<'li'>)
 }
 
 function SidebarMenuSubButton({
-                                asChild = false,
-                                size = 'md',
-                                isActive = false,
-                                className,
-                                ...props
-                              }: React.ComponentProps<'a'> & {
+  asChild = false,
+  size = 'md',
+  isActive = false,
+  className,
+  ...props
+}: React.ComponentProps<'a'> & {
   asChild?: boolean
   size?: 'sm' | 'md'
   isActive?: boolean

@@ -1,5 +1,15 @@
 'use client'
 
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+
+import {
+  BookOpenIcon,
+  LayoutDashboardIcon,
+  NotebookPenIcon,
+  TargetIcon,
+} from 'lucide-react'
+
 import { Separator } from '@/components/ui/separator'
 import {
   Sidebar,
@@ -19,10 +29,6 @@ import {
 import { UserSetup } from '@/components/user-setup'
 import { useUser } from '@/hooks/use-user'
 
-import { BookOpenIcon, LayoutDashboardIcon, NotebookPenIcon } from 'lucide-react'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-
 const navItems = [
   {
     title: 'ダッシュボード',
@@ -33,6 +39,11 @@ const navItems = [
     title: '教科',
     href: '/subjects',
     icon: BookOpenIcon,
+  },
+  {
+    title: '目標',
+    href: '/goals',
+    icon: TargetIcon,
   },
   {
     title: '学習記録',

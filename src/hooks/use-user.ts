@@ -1,7 +1,8 @@
 'use client'
 
-import { UserContext, type UserContextValue } from '@/providers/user-provider'
 import { use } from 'react'
+
+import { UserContext, type UserContextValue } from '@/providers/user-provider'
 
 export function useUser(): UserContextValue {
   const context = use(UserContext)
